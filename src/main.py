@@ -47,8 +47,8 @@ def main():
     fetcher = MarketDataFetcher()
     
     try:
-        # Phase 3: Fetch Most Active Equities
-        print("\n[Phase 3] Fetching Most Active Equities...")
+        # Step 1: Fetch Most Active Equities
+        print("\n[Step 1] Fetching Most Active Equities...")
         print("-" * 80)
         
         active_stocks = fetcher.get_most_active_stocks(limit=10)
@@ -79,8 +79,8 @@ def main():
             if isinstance(price, (int, float)):
                 print(f"{idx:<6} {symbol:<8} {name:<25} ${price:<11.2f} {change:<12} {volume:<15}")
         
-        # Phase 4: Export & Automation
-        print("\n[Phase 4] Export Symbols & Trigger Automation...")
+        # Step 2: Export & Automation
+        print("\n[Step 2] Export Symbols & Trigger Automation...")
         print("-" * 80)
         
         output_path = r"C:\Users\senth\OneDrive\Documents\data\screenshots\stock_symbols.txt"

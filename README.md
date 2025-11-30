@@ -4,7 +4,7 @@ An automated Python pipeline that fetches the most active stocks from StockTwits
 
 ## 🎯 Workflow Overview
 
-**Phase 3: Fetch Market Data** → **Phase 4: Export & Trigger Automation** → **DesktopAuto.exe** (Screenshot + LLM Analysis)
+**Step 1: Fetch Market Data** → **Step 2: Export & Trigger Automation** → **DesktopAuto.exe** (Screenshot + LLM Analysis)
 
 1. Fetch top 10 most active equities with real-time prices & volumes
 2. Save symbols to file  
@@ -37,7 +37,7 @@ python src/main.py
 
 `
 src/
-├── main.py              # Orchestrator (Phase 3 & 4)
+├── main.py              # Orchestrator (Step 1 & 2)
 ├── market_data.py       # Fetch active stocks
 ├── export_stocks.py     # Export & trigger automation
 ├── market_movers.py     # Display market data
@@ -47,11 +47,11 @@ src/
 
 ## 🔧 How It Works
 
-### Phase 3: market_data.py - MarketDataFetcher
+### Step 1: `market_data.py` - MarketDataFetcher
 - Fetches top 10 most active equities
 - Returns: symbol, name, price, change %, volume
 
-### Phase 4: xport_stocks.py - extract_and_save_stocks()
+### Step 2: `export_stocks.py` - extract_and_save_stocks()
 1. Extract top 10 symbols from market data
 2. Save to: stock_symbols.txt (one symbol per line)
 3. **Launch DesktopAuto.exe with proper config:**
@@ -111,7 +111,7 @@ This allows DesktopAuto.exe to:
 `
 StockTwits Most Active Equities Analyzer
 
-[Phase 3] Fetching Most Active Equities...
+[Step 1] Fetching Most Active Equities...
 ✓ Found 10 most active equities
 ✓ Top Gainer: SMX (+231.11%)
 ✓ Top Loser: NVDA (-2.01%)
@@ -130,7 +130,7 @@ Rank   Symbol   Company          Price      % Change   Volume
 9      MSTR     Strategy        .40     +1.57%     15.11M
 10     ALT      Altimmune       .22       +1.03%     2.12M
 
-[Phase 4] Export Symbols & Trigger Automation...
+[Step 2] Export Symbols & Trigger Automation...
 ✓ Active stocks extracted and saved
 ✓ Total records: 10 most active + 5 gainers + 4 losers
 ✓ DesktopAuto.exe triggered
